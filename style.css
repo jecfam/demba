@@ -1,0 +1,9 @@
+.search-bar input[type="text"] {
+    /* Adjust the border-radius property to change the shape */
+    border-radius: 20px; /* You can adjust the value to change the roundness */
+    /* Other styling properties can be added as needed */
+    /* For example: */
+    border: 1px solid #ccc; /* Add a border */
+    padding: 10px; /* Add some padding for better appearance */
+    width: 200px; /* Set the width */
+}
