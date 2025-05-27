@@ -172,7 +172,7 @@ main {
 
 .product img {
   width: 100%; /* Keep full width for uniformity */
-  height: auto; /* Maintain aspect ratio */
+  height: 130px; /* Maintain aspect ratio */
   border-radius: 5px;
   margin-bottom: 10px;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -242,7 +242,36 @@ h5 {
   font-size: 15px;
   padding: 15px;
 }
+@media (max-width: 600px) {
+  .product img {
+    height: 100px; /* smaller height for mobile screens */
+    width: 70%;
+    margin-left: 26px;
+  }
 
+  .product {
+    padding: -2px;
+  }
+
+  .product h4, .product h5 {
+    font-size: 0.95rem;
+  }
+
+  .product button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .star {
+    font-size: 16px;
+  }
+
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 10px;
+    gap: 10px;
+  }
+}
 </style>
 <body>
   <header>
