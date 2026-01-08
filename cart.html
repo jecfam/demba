@@ -3,181 +3,1155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="icons8-favicon-48.png" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Shopping Cart</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Your Cart | Demba Woodcraft</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --primary: #1C1917;
+      --primary-light: #44403C;
+      --accent: #B45309;
+      --accent-light: #FEF3C7;
+      --light: #FAFAF9;
+      --white: #FFFFFF;
+      --gray-light: #F5F5F4;
+      --gray: #78716C;
+      --gray-dark: #57534E;
+      --success: #059669;
+      --error: #DC2626;
+      --border: #E7E5E4;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+    
+    * {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    .cart-container {
-      max-width: 800px;
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: var(--light);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px;
     }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
+    
+    /* Header */
+    .header {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
     }
-
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
+    
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    th {
-      background-color: #f4f4f4;
-    }
-
-    .total {
-      text-align: right;
-      font-size: 18px;
+    
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
       font-weight: bold;
     }
-
-    .order-button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      background-color: #0a2d52;
-      color: #fff;
-      text-align: center;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
+    
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-dark);
       text-decoration: none;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      transition: all 0.2s;
     }
-
-    .order-button:hover {
-      background-color: #0946ee;
+    
+    .back-btn:hover {
+      background: var(--gray-light);
+      color: var(--primary);
     }
-
-    .empty-cart {
+    
+    /* Main Content */
+    .main-content {
+      padding: 40px 0 80px;
+    }
+    
+    .page-header {
       text-align: center;
-      font-size: 18px;
-      color: #888;
+      margin-bottom: 40px;
+    }
+    
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .page-subtitle {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Cart Items */
+    .cart-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    
+    .cart-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cart-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .cart-count {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    .cart-items {
+      padding: 0;
+    }
+    
+    .cart-empty {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    .cart-empty-icon {
+      font-size: 48px;
+      color: var(--border);
+      margin-bottom: 20px;
+    }
+    
+    .cart-empty-title {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: var(--gray-dark);
+    }
+    
+    .cart-empty-text {
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+    
+    /* Cart Item */
+    .cart-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 20px;
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: all 0.3s ease;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .cart-item.removing {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .cart-item:hover {
+      background: var(--gray-light);
+    }
+    
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    
+    .cart-item-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .cart-item-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .cart-item-category {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .cart-item-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .cart-item-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 15px;
+    }
+    
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 8px;
+      border: 1px solid var(--border);
+    }
+    
+    .quantity-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .quantity-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+    
+    .quantity-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .quantity {
+      min-width: 40px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--error);
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .remove-btn:hover {
+      background: rgba(220, 38, 38, 0.1);
+    }
+    
+    .item-total {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    /* Order Summary */
+    .order-summary {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      position: sticky;
+      top: 100px;
+    }
+    
+    .summary-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      color: var(--gray);
+    }
+    
+    .summary-row.total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid var(--border);
+    }
+    
+    .summary-value {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .checkout-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), #D97706);
+      color: white;
+      padding: 18px;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .checkout-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .checkout-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #D97706);
+      color: white;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* WhatsApp Modal */
+    .whatsapp-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .whatsapp-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .whatsapp-content {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+    
+    .whatsapp-modal.active .whatsapp-content {
+      transform: scale(1);
+    }
+    
+    .whatsapp-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    
+    .whatsapp-icon {
+      font-size: 48px;
+      color: #25D366;
+      margin-bottom: 15px;
+    }
+    
+    .whatsapp-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .whatsapp-text {
+      color: var(--gray);
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    
+    .whatsapp-preview {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 25px;
+      border: 1px solid var(--border);
+    }
+    
+    .whatsapp-items {
+      list-style: none;
+      margin-bottom: 15px;
+    }
+    
+    .whatsapp-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .whatsapp-item:last-child {
+      border-bottom: none;
+    }
+    
+    .whatsapp-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding-top: 15px;
+      margin-top: 15px;
+      border-top: 2px solid var(--border);
+    }
+    
+    .whatsapp-actions {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .btn-secondary {
+      flex: 1;
+      background: var(--light);
+      color: var(--primary);
+      padding: 15px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--border);
+    }
+    
+    .whatsapp-btn {
+      flex: 1;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .whatsapp-btn:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--white);
+      color: var(--primary);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .toast-icon {
+      font-size: 1.2rem;
+    }
+    
+    .toast-success .toast-icon {
+      color: var(--success);
+    }
+    
+    .toast-error .toast-icon {
+      color: var(--error);
+    }
+    
+    .toast-info .toast-icon {
+      color: var(--accent);
+    }
+    
+    .toast-message {
+      font-size: 0.95rem;
+    }
+    
+    /* Loading Animation */
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading .spinner {
+      display: inline-block;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .cart-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 15px;
+      }
+      
+      .cart-item-image {
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+      }
+      
+      .cart-item-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .whatsapp-actions {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="cart-container">
-    <a href="products.html" class="back-to-products"><center><strong>← Back to Products</strong></center></a>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="products.html" class="logo">
+        <div class="logo-icon">D</div>
+        <span>DEMBA</span>
+      </a>
+      
+      <a href="products.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Continue Shopping
+      </a>
+    </div>
+  </header>
 
-    <h1>Your Cart</h1>
-    <table id="cart-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price (Ksh)</th>
-          <th>Quantity</th>
-          <th>Subtotal (Ksh)</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items">
-        <!-- Items will be populated here dynamically -->
-      </tbody>
-    </table>
-    <p class="total" id="total-price">Total: Ksh 0</p>
-    <a href="#" class="order-button" id="order-now">Order Now</a>
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Your Shopping Cart</h1>
+        <p class="page-subtitle">Review your items and proceed to checkout</p>
+      </div>
+      
+      <div class="cart-layout">
+        <!-- Cart Items -->
+        <div class="cart-section">
+          <div class="cart-header">
+            <h2 class="cart-title">Cart Items</h2>
+            <span class="cart-count" id="cart-count">0 items</span>
+          </div>
+          
+          <div class="cart-items" id="cart-items-container">
+            <!-- Items will be loaded here -->
+            <div class="cart-empty" id="cart-empty">
+              <div class="cart-empty-icon">
+                <i class="fas fa-shopping-bag"></i>
+              </div>
+              <h3 class="cart-empty-title">Your cart is empty</h3>
+              <p class="cart-empty-text">Add some products to get started!</p>
+              <a href="products.html" class="btn-primary">
+                <i class="fas fa-store"></i>
+                Browse Products
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Order Summary -->
+        <div class="order-summary" id="order-summary">
+          <h2 class="summary-title">Order Summary</h2>
+          
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span class="summary-value" id="subtotal">KSh 0</span>
+          </div>
+          
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span class="summary-value">KSh 250</span>
+          </div>
+          
+          <div class="summary-row">
+            <span>Tax (16%)</span>
+            <span class="summary-value" id="tax">KSh 0</span>
+          </div>
+          
+          <div class="summary-row total">
+            <span>Total</span>
+            <span class="summary-value" id="total">KSh 0</span>
+          </div>
+          
+          <button class="checkout-btn" id="checkout-btn" disabled>
+            <i class="fab fa-whatsapp"></i>
+            Checkout via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- WhatsApp Modal -->
+  <div class="whatsapp-modal" id="whatsapp-modal">
+    <div class="whatsapp-content">
+      <div class="whatsapp-header">
+        <div class="whatsapp-icon">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <h2 class="whatsapp-title">Confirm Your Order</h2>
+        <p class="whatsapp-text">We'll send this order to our WhatsApp for processing</p>
+      </div>
+      
+      <div class="whatsapp-preview">
+        <h3>Order Summary</h3>
+        <ul class="whatsapp-items" id="whatsapp-items">
+          <!-- Items will be added here -->
+        </ul>
+        <div class="whatsapp-total">
+          <span>Total Amount:</span>
+          <span id="whatsapp-total">KSh 0</span>
+        </div>
+      </div>
+      
+      <div class="whatsapp-actions">
+        <button class="btn-secondary" onclick="closeWhatsAppModal()">
+          <i class="fas fa-edit"></i>
+          Edit Order
+        </button>
+        <a href="#" class="whatsapp-btn" id="whatsapp-link" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          Send Order
+        </a>
+      </div>
+    </div>
   </div>
 
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
   <script>
-    // Load Cart and Populate Table
+    // Initialize cart
+    let cart = [];
+    const PHONE_NUMBER = '254743896973'; // Your WhatsApp number
+    
+    // Load cart on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCart();
+      setupEventListeners();
+    });
+    
+    // Setup event listeners
+    function setupEventListeners() {
+      // Checkout button
+      document.getElementById('checkout-btn').addEventListener('click', function() {
+        if (cart.length === 0) return;
+        openWhatsAppModal();
+      });
+      
+      // Close modal when clicking outside
+      document.getElementById('whatsapp-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeWhatsAppModal();
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeWhatsAppModal();
+        }
+      });
+    }
+    
+    // Load cart from localStorage
     function loadCart() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartItemsContainer = document.getElementById('cart-items');
-      const totalPriceElement = document.getElementById('total-price');
-      let totalPrice = 0;
-
-      // Clear table before adding new items
-      cartItemsContainer.innerHTML = '';
-
+      const savedCart = localStorage.getItem('demba_cart');
+      cart = savedCart ? JSON.parse(savedCart) : [];
+      renderCart();
+      updateOrderSummary();
+      updateCheckoutButton();
+    }
+    
+    // Save cart to localStorage
+    function saveCart() {
+      localStorage.setItem('demba_cart', JSON.stringify(cart));
+      updateCheckoutButton();
+    }
+    
+    // Render cart items
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      const emptyState = document.getElementById('cart-empty');
+      const cartCount = document.getElementById('cart-count');
+      
+      // Update cart count
+      const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+      cartCount.textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
+      
+      // Check if cart is empty
       if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<tr><td colspan="5" class="empty-cart">Your cart is empty!</td></tr>';
+        emptyState.style.display = 'block';
+        container.innerHTML = '';
+        container.appendChild(emptyState);
         return;
       }
-
-      // Loop through cart items and populate rows
+      
+      // Hide empty state
+      emptyState.style.display = 'none';
+      
+      // Clear container
+      container.innerHTML = '';
+      
+      // Render each cart item
       cart.forEach((item, index) => {
-        const subtotal = item.price * item.quantity;
-        totalPrice += subtotal;
-
-        const row = `
-          <tr>
-            <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td>
-              <button onclick="updateQuantity(${index}, -1)">-</button>
-              ${item.quantity}
-              <button onclick="updateQuantity(${index}, 1)">+</button>
-            </td>
-            <td>${subtotal}</td>
-            <td><button onclick="removeItem(${index})">Remove</button></td>
-          </tr>
-        `;
-        cartItemsContainer.insertAdjacentHTML('beforeend', row);
+        const itemElement = createCartItemElement(item, index);
+        container.appendChild(itemElement);
       });
-
-      totalPriceElement.textContent = `Total: Ksh ${totalPrice}`;
-
-      // Update "Order Now" button link
-      const orderNowButton = document.getElementById('order-now');
-      const encodedCart = encodeURIComponent(JSON.stringify(cart));
-      orderNowButton.href = `https://wa.me/254743896973?text=Hello%20Demba%20Crafts,%20kindly%20process%20for%20me%20the%20following%20Order%20Details:%20${encodedCart}%0ATotal:%20Ksh%20${totalPrice}`;
     }
-
-    // Update Quantity
+    
+    // Create cart item element
+    function createCartItemElement(item, index) {
+      const itemTotal = item.price * item.quantity;
+      
+      const element = document.createElement('div');
+      element.className = 'cart-item';
+      element.dataset.index = index;
+      
+      element.innerHTML = `
+        <img src="${item.image || 'https://via.placeholder.com/100'}" 
+             alt="${item.name}" 
+             class="cart-item-image"
+             onerror="this.src='https://via.placeholder.com/100'">
+        
+        <div class="cart-item-details">
+          <h3 class="cart-item-name">${item.name}</h3>
+          <span class="cart-item-category">${item.category || 'Woodcraft'}</span>
+          <div class="cart-item-price">KSh ${item.price.toLocaleString()}</div>
+        </div>
+        
+        <div class="cart-item-actions">
+          <div class="quantity-control">
+            <button class="quantity-btn" onclick="updateQuantity(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>
+              <i class="fas fa-minus"></i>
+            </button>
+            <span class="quantity">${item.quantity}</span>
+            <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+          
+          <div class="item-total">KSh ${itemTotal.toLocaleString()}</div>
+          
+          <button class="remove-btn" onclick="removeItem(${index})">
+            <i class="fas fa-trash"></i>
+            Remove
+          </button>
+        </div>
+      `;
+      
+      return element;
+    }
+    
+    // Update quantity - FIXED to update immediately
     function updateQuantity(index, change) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if (cart[index]) {
-        cart[index].quantity += change;
-        if (cart[index].quantity <= 0) {
-          cart.splice(index, 1); // Remove item if quantity is 0
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-        loadCart(); // Reload cart
+      const item = cart[index];
+      if (!item) return;
+      
+      // Update quantity
+      item.quantity += change;
+      
+      // If quantity is 0 or less, remove the item
+      if (item.quantity <= 0) {
+        removeItem(index);
+        return;
+      }
+      
+      // Save cart first
+      saveCart();
+      
+      // Get the cart item element
+      const cartItemElement = document.querySelector(`.cart-item[data-index="${index}"]`);
+      if (cartItemElement) {
+        // Update quantity display
+        const quantityDisplay = cartItemElement.querySelector('.quantity');
+        quantityDisplay.textContent = item.quantity;
+        
+        // Update minus button state
+        const minusBtn = cartItemElement.querySelector('.quantity-btn:first-child');
+        minusBtn.disabled = item.quantity <= 1;
+        
+        // Update item total
+        const itemTotalElement = cartItemElement.querySelector('.item-total');
+        itemTotalElement.textContent = `KSh ${(item.price * item.quantity).toLocaleString()}`;
+      }
+      
+      // Update order summary
+      updateOrderSummary();
+      
+      // Show feedback
+      showToast(`${item.name} quantity updated to ${item.quantity}`, 'success');
+    }
+    
+    // Remove item - FIXED with animation
+    function removeItem(index) {
+      const item = cart[index];
+      if (!item) return;
+      
+      // Find the cart item element
+      const cartItemElement = document.querySelector(`.cart-item[data-index="${index}"]`);
+      
+      if (cartItemElement) {
+        // Add removing animation class
+        cartItemElement.classList.add('removing');
+        
+        // Wait for animation to complete
+        setTimeout(() => {
+          // Remove from cart array
+          cart.splice(index, 1);
+          
+          // Save cart
+          saveCart();
+          
+          // Re-render cart (to update indices)
+          renderCart();
+          
+          // Update order summary
+          updateOrderSummary();
+          
+          // Show feedback
+          showToast(`${item.name} removed from cart`, 'success');
+        }, 300);
+      } else {
+        // Fallback if element not found
+        cart.splice(index, 1);
+        saveCart();
+        renderCart();
+        updateOrderSummary();
+        showToast(`${item.name} removed from cart`, 'success');
       }
     }
-
-    // Remove Item
-    function removeItem(index) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      loadCart(); // Reload cart
+    
+    // Update order summary
+    function updateOrderSummary() {
+      const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      const tax = subtotal * 0.16;
+      const shipping = cart.length > 0 ? 250 : 0;
+      const total = subtotal + tax + shipping;
+      
+      document.getElementById('subtotal').textContent = `KSh ${subtotal.toLocaleString()}`;
+      document.getElementById('tax').textContent = `KSh ${Math.round(tax).toLocaleString()}`;
+      document.getElementById('total').textContent = `KSh ${total.toLocaleString()}`;
     }
-
-    // Load cart on page load
-    loadCart();
-  </script>
-   <script>
-    // Function to check if user is logged in
-    function checkLoginStatus() {
-        return localStorage.getItem("isLoggedIn") === "true";
+    
+    // Update checkout button
+    function updateCheckoutButton() {
+      const checkoutBtn = document.getElementById('checkout-btn');
+      checkoutBtn.disabled = cart.length === 0;
     }
-
-    // Redirect to login/signup page if user is not logged in
-    document.getElementById("order-now-btn").addEventListener("click", function() {
-        if (!checkLoginStatus()) {
-            window.location.href = "signuplogin.html";  // Redirect to signup/login page
-        } else {
-            // Proceed with WhatsApp redirection or other order logic
-            window.location.href = "https://wa.me/1234567890?text=I%20want%20to%20order%20some%20items"; // Replace with your WhatsApp number and message
+    
+    // WhatsApp functionality
+    function openWhatsAppModal() {
+      if (cart.length === 0) return;
+      
+      // Update WhatsApp preview
+      updateWhatsAppPreview();
+      
+      // Generate WhatsApp message
+      const message = generateWhatsAppMessage();
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
+      
+      // Update WhatsApp link
+      document.getElementById('whatsapp-link').href = whatsappUrl;
+      
+      // Show modal
+      document.getElementById('whatsapp-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeWhatsAppModal() {
+      document.getElementById('whatsapp-modal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    function generateWhatsAppMessage() {
+      const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      const tax = subtotal * 0.16;
+      const shipping = 250;
+      const total = subtotal + tax + shipping;
+      
+      let message = `Hello Demba Crafts! 👋\n\n`;
+      message += `I would like to place an order:\n\n`;
+      
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        message += `• ${item.name} (x${item.quantity}) - KSh ${itemTotal.toLocaleString()}\n`;
+      });
+      
+      message += `\n📦 Subtotal: KSh ${subtotal.toLocaleString()}\n`;
+      message += `💰 Tax (16%): KSh ${Math.round(tax).toLocaleString()}\n`;
+      message += `🚚 Shipping: KSh ${shipping.toLocaleString()}\n`;
+      message += `💳 Total: KSh ${total.toLocaleString()}\n\n`;
+      message += `Please let me know the next steps!\n`;
+      message += `Thank you!`;
+      
+      return message;
+    }
+    
+    function updateWhatsAppPreview() {
+      const container = document.getElementById('whatsapp-items');
+      const totalElement = document.getElementById('whatsapp-total');
+      
+      container.innerHTML = '';
+      
+      let total = 0;
+      
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        
+        const li = document.createElement('li');
+        li.className = 'whatsapp-item';
+        li.innerHTML = `
+          <span>${item.name} (x${item.quantity})</span>
+          <span>KSh ${itemTotal.toLocaleString()}</span>
+        `;
+        container.appendChild(li);
+      });
+      
+      const subtotal = total;
+      const tax = subtotal * 0.16;
+      const shipping = 250;
+      const grandTotal = subtotal + tax + shipping;
+      
+      totalElement.textContent = `KSh ${grandTotal.toLocaleString()}`;
+    }
+    
+    // Toast notification system
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      
+      let icon = 'fas fa-info-circle';
+      if (type === 'success') icon = 'fas fa-check-circle';
+      if (type === 'error') icon = 'fas fa-exclamation-circle';
+      
+      toast.innerHTML = `
+        <i class="${icon} toast-icon"></i>
+        <span class="toast-message">${message}</span>
+      `;
+      
+      container.appendChild(toast);
+      
+      // Show toast
+      setTimeout(() => toast.classList.add('show'), 10);
+      
+      // Auto remove after 3 seconds
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+    
+    // For testing - add sample items
+    window.addSampleItems = function() {
+      const sampleItems = [
+        {
+          id: 1,
+          name: 'Artisan Wooden Utensil Set',
+          price: 2300,
+          image: 'img/demba1.png',
+          category: 'sets',
+          quantity: 1
+        },
+        {
+          id: 2,
+          name: 'Spatula & Spoon Duo',
+          price: 1750,
+          image: 'img/demba2.png',
+          category: 'utensils',
+          quantity: 2
         }
-    });
-</script>
-  
+      ];
+      
+      cart = sampleItems;
+      saveCart();
+      renderCart();
+      updateOrderSummary();
+      showToast('Sample items added to cart', 'success');
+    };
+    
+    // Clear cart
+    window.clearCart = function() {
+      if (confirm('Are you sure you want to clear your cart?')) {
+        cart = [];
+        saveCart();
+        renderCart();
+        updateOrderSummary();
+        showToast('Cart cleared', 'success');
+      }
+    };
+  </script>
 </body>
 </html>
