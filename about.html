@@ -1,103 +1,1262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icons8-favicon-48.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>About Us</title>
-</head>
-<h1><center><strong>DEMBA CRAFTS</strong></center></h1>
-    
-<div class="navbar">
-      <a href="home.html">Home</a></li>
-      <a href="products.html">Products</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-<style>
-    body {
-        background-image: url(whitecloth.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
-    }
-    .container {
-  width: 100%;
-  margin: 10px;
-}
-h2 {
-  font-family: font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icons8-favicon-48.png" type="image/x-icon">
+  <title>About | Demba Woodcraft</title>
   
-}
-h3 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-style: normal;
-}
-
-h1 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-style: normal;
-  font-size: 25px;
-  text-shadow: 1px 2px 0 #e28686;
-}
-header {
-  background-color: white;
-  padding: none;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-header h1 {
-  margin: 0;
-  text-align: center;
-}
-
-.navbar {
-  padding: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -38px;
-}
-.navbar a {
-  text-decoration: none;
-  color: #a32d2d;
-  transition: all 0.3s ease-in-out; /* Smooth transition */
-  font-weight: 900; /* Reset font weight if necessary */
-  font-size: 15px;
-  padding: 13px;
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
-}
- a:hover {
-  color: rgb(18, 20, 20);
-  text-decoration: underline; /* Add underline on hover */
-  font-weight: bold; /* Make the text bold */
-  letter-spacing: 1px; /* Slightly increase letter spacing */
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-}
-</style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* ===== CSS VARIABLES & RESET ===== */
+    :root {
+      /* Light Theme */
+      --color-bg: #FAFAF9;
+      --color-surface: #FFFFFF;
+      --color-surface-elevated: #F5F5F4;
+      --color-text-primary: #1C1917;
+      --color-text-secondary: #57534E;
+      --color-text-tertiary: #78716C;
+      --color-border: #E7E5E4;
+      --color-accent: #B45309;
+      --color-accent-light: #FEF3C7;
+      --color-success: #059669;
+      --color-warning: #D97706;
+      --color-error: #DC2626;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      
+      /* Typography */
+      --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      
+      /* Spacing */
+      --space-0: 0;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      
+      /* Border Radius */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-2xl: 1.5rem;
+      --radius-full: 9999px;
+    }
+    
+    .dark {
+      --color-bg: #0C0A09;
+      --color-surface: #1C1917;
+      --color-surface-elevated: #292524;
+      --color-text-primary: #FAFAF9;
+      --color-text-secondary: #D6D3D1;
+      --color-text-tertiary: #A8A29E;
+      --color-border: #44403C;
+      --color-accent: #F59E0B;
+      --color-accent-light: #78350F;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease;
+    }
+    
+    /* ===== NAVIGATION ===== */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(250, 250, 249, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+    }
+    
+    .dark .nav-bar {
+      background: rgba(12, 10, 9, 0.95);
+    }
+    
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+    }
+    
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--color-accent), #D97706);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    
+    .brand-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-text-primary);
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: var(--space-8);
+    }
+    
+    .nav-link {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--color-text-primary);
+      background: var(--color-surface-elevated);
+    }
+    
+    .nav-link.active {
+      color: var(--color-accent);
+    }
+    
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--color-accent);
+      border-radius: var(--radius-full);
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .theme-toggle:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    
+    .cart-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    
+    .cart-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      min-width: 20px;
+      height: 20px;
+      background: var(--color-accent);
+      color: white;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--space-1);
+    }
+    
+    /* ===== MAIN CONTENT ===== */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 7rem var(--space-6) var(--space-20);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      margin-bottom: var(--space-20);
+    }
+    
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, var(--color-accent), #D97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Story Section */
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      margin-bottom: var(--space-20);
+      align-items: center;
+    }
+    
+    @media (max-width: 1024px) {
+      .story-section {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+    }
+    
+    .story-image {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      min-height: 500px;
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.1), rgba(180, 83, 9, 0.05));
+    }
+    
+    .story-image-content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 5rem;
+    }
+    
+    .story-content {
+      padding: var(--space-6);
+    }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: var(--space-6);
+    }
+    
+    .story-text {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-6);
+      font-size: 1.1rem;
+    }
+    
+    /* Values Section */
+    .values-section {
+      margin-bottom: var(--space-20);
+    }
+    
+    .values-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .value-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: transparent;
+    }
+    
+    .value-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.1), rgba(180, 83, 9, 0.05));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 1.75rem;
+      margin: 0 auto var(--space-6);
+    }
+    
+    .value-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-text-primary);
+    }
+    
+    .value-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    
+    /* Team Section */
+    .team-section {
+      margin-bottom: var(--space-20);
+    }
+    
+    .team-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .team-member {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .member-image {
+      width: 120px;
+      height: 120px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.1), rgba(180, 83, 9, 0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 2.5rem;
+      margin: 0 auto var(--space-6);
+    }
+    
+    .member-name {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+      color: var(--color-text-primary);
+    }
+    
+    .member-role {
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    
+    .member-bio {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Location Section */
+    .location-section {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--space-20);
+    }
+    
+    .location-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .location-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    
+    .visit-btn {
+      background: var(--color-accent);
+      color: white;
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .visit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .location-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+    
+    @media (max-width: 768px) {
+      .location-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .address-info {
+      padding: var(--space-4);
+    }
+    
+    .address-line {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    
+    .address-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.1), rgba(180, 83, 9, 0.05));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    
+    .address-details h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+      color: var(--color-text-primary);
+    }
+    
+    .address-details p {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    
+    .map-placeholder {
+      background: var(--color-surface-elevated);
+      border-radius: var(--radius-lg);
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-tertiary);
+    }
+    
+    .map-placeholder i {
+      font-size: 3rem;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+    
+    /* Milestones Section */
+    .milestones-section {
+      margin-bottom: var(--space-20);
+    }
+    
+    .milestones-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .milestones-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .milestones-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-border);
+      transform: translateX(-50%);
+    }
+    
+    @media (max-width: 768px) {
+      .milestones-timeline::before {
+        left: 30px;
+      }
+    }
+    
+    .milestone {
+      position: relative;
+      margin-bottom: var(--space-12);
+      display: flex;
+      align-items: center;
+    }
+    
+    @media (max-width: 768px) {
+      .milestone {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 60px;
+      }
+    }
+    
+    .milestone-date {
+      width: 50%;
+      padding-right: var(--space-8);
+      text-align: right;
+    }
+    
+    @media (max-width: 768px) {
+      .milestone-date {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: var(--space-2);
+      }
+    }
+    
+    .milestone-year {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    
+    .milestone-content {
+      width: 50%;
+      padding-left: var(--space-8);
+      position: relative;
+    }
+    
+    @media (max-width: 768px) {
+      .milestone-content {
+        width: 100%;
+        padding-left: 0;
+      }
+    }
+    
+    .milestone-content::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      background: var(--color-accent);
+      border-radius: var(--radius-full);
+      transform: translateY(-50%);
+    }
+    
+    @media (max-width: 768px) {
+      .milestone-content::before {
+        left: -36px;
+      }
+    }
+    
+    .milestone-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+      color: var(--color-text-primary);
+    }
+    
+    .milestone-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-12) 0 var(--space-8);
+    }
+    
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-12);
+      margin-bottom: var(--space-8);
+    }
+    
+    .footer-column h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-text-primary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+    
+    .contact-info {
+      color: var(--color-text-secondary);
+    }
+    
+    .contact-info p {
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-tertiary);
+      font-size: 0.9rem;
+    }
+    
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 var(--space-4);
+      }
+      
+      .brand-text {
+        display: none;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--color-surface);
+        padding: var(--space-4);
+        flex-direction: column;
+        gap: var(--space-2);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .main-container {
+        padding: 6rem var(--space-4) var(--space-12);
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .values-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .value-card,
+    .team-member,
+    .milestone {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    .value-card:nth-child(1) { animation-delay: 0.1s; }
+    .value-card:nth-child(2) { animation-delay: 0.2s; }
+    .value-card:nth-child(3) { animation-delay: 0.3s; }
+    .value-card:nth-child(4) { animation-delay: 0.4s; }
+    .team-member:nth-child(1) { animation-delay: 0.2s; }
+    .team-member:nth-child(2) { animation-delay: 0.3s; }
+    .team-member:nth-child(3) { animation-delay: 0.4s; }
+    .milestone:nth-child(1) { animation-delay: 0.1s; }
+    .milestone:nth-child(2) { animation-delay: 0.2s; }
+    .milestone:nth-child(3) { animation-delay: 0.3s; }
+    .milestone:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
 <body>
-    
-        <h2><center>About Our Business;</center</h2>
-    <section id="location">
-        <h3><center></center></h3>
-        <p><center>We are located at:</center></p>
-        <address><center>
-            Kilifi Main Street<br>
-            Cityville, State<br>
-            Kenya<br>
-            450012
-        </center></address>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <a href="products.html" class="brand">
+        <div class="brand-logo">D</div>
+        <span class="brand-text">DEMBA</span>
+      </a>
+      
+      <div class="nav-menu" id="nav-menu">
+        <a href="products.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <a href="cart.html" class="cart-btn" id="cart-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        
+        <button class="theme-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="hero-title">
+        Our <span class="text-gradient">Story</span>
+      </h1>
+      <p class="hero-subtitle">
+        From a small workshop in Mombasa to creating handcrafted wooden kitchenware 
+        cherished across Kenya and beyond.
+      </p>
     </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+      <div class="story-image">
+        <div class="story-image-content">
+          <i class="fas fa-tree"></i>
+        </div>
+      </div>
+      
+      <div class="story-content">
+        <h2 class="section-title">The Demba Legacy</h2>
+        <p class="story-text">
+          Founded in 1995 by master craftsman James Demba, our journey began in a 
+          humble workshop in Mombasa. What started as a passion for traditional 
+          woodworking has grown into a family business dedicated to creating 
+          beautiful, functional kitchenware that stands the test of time.
+        </p>
+        <p class="story-text">
+          For nearly three decades, we've combined age-old techniques with modern 
+          design sensibilities. Each piece in our collection tells a story of 
+          dedication, craftsmanship, and a deep respect for the natural beauty of wood.
+        </p>
+        <p class="story-text">
+          Today, while we've grown, our commitment remains the same: to create 
+          sustainable, handcrafted wooden products that bring warmth and character 
+          to kitchens across Kenya and beyond.
+        </p>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="values-header">
+        <h2 class="section-title">Our Values</h2>
+        <p class="hero-subtitle">
+          The principles that guide everything we create
+        </p>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="value-title">Sustainability</h3>
+          <p class="value-description">
+            We source wood from certified sustainable forests and use 
+            eco-friendly finishes. Every piece is crafted with minimal 
+            environmental impact.
+          </p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-hands"></i>
+          </div>
+          <h3 class="value-title">Craftsmanship</h3>
+          <p class="value-description">
+            Each piece is handcrafted by skilled artisans using traditional 
+            techniques passed down through generations of woodworkers.
+          </p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="value-title">Quality</h3>
+          <p class="value-description">
+            We don't compromise on quality. Every item undergoes rigorous 
+            inspection to ensure it meets our high standards of durability 
+            and beauty.
+          </p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="value-title">Community</h3>
+          <p class="value-description">
+            We support local communities by providing training and employment 
+            opportunities, and sourcing materials from local suppliers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="team-header">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="hero-subtitle">
+          The skilled artisans and dedicated professionals behind Demba Woodcraft
+        </p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 class="member-name">James Demba</h3>
+          <div class="member-role">Founder & Master Craftsman</div>
+          <p class="member-bio">
+            With over 30 years of woodworking experience, James oversees 
+            all production and ensures every piece meets his exacting standards.
+          </p>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 class="member-name">Sarah Demba</h3>
+          <div class="member-role">Creative Director</div>
+          <p class="member-bio">
+            Sarah brings modern design sensibilities to traditional 
+            woodworking, creating products that are both beautiful and functional.
+          </p>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 class="member-name">Michael Otieno</h3>
+          <div class="member-role">Lead Artisan</div>
+          <p class="member-bio">
+            A third-generation woodworker, Michael specializes in intricate 
+            carving and custom designs that make each piece unique.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+      <div class="location-header">
+        <h2 class="location-title">Our Workshop</h2>
+        <a href="https://maps.google.com/?q=Kilifi+Main+Street+Mombasa+Kenya" target="_blank" class="visit-btn">
+          <i class="fas fa-map-marker-alt"></i>
+          Visit Us
+        </a>
+      </div>
+      
+      <div class="location-content">
+        <div class="address-info">
+          <div class="address-line">
+            <div class="address-icon">
+              <i class="fas fa-map-pin"></i>
+            </div>
+            <div class="address-details">
+              <h4>Physical Address</h4>
+              <p>
+                Kilifi Main Street<br>
+                Mombasa, Kenya<br>
+                450012
+              </p>
+            </div>
+          </div>
+          
+          <div class="address-line">
+            <div class="address-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="address-details">
+              <h4>Workshop Hours</h4>
+              <p>
+                Monday - Friday: 8:00 AM - 6:00 PM<br>
+                Saturday: 9:00 AM - 4:00 PM<br>
+                Sunday: Closed
+              </p>
+            </div>
+          </div>
+          
+          <div class="address-line">
+            <div class="address-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="address-details">
+              <h4>Showroom Visits</h4>
+              <p>
+                Visit our showroom to see our complete collection.<br>
+                Appointments recommended for custom design consultations.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <p>Kilifi Main Street, Mombasa</p>
+          <p style="font-size: 0.9rem; margin-top: var(--space-2);">
+            Click "Visit Us" for directions
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="milestones-section">
+      <div class="milestones-header">
+        <h2 class="section-title">Our Journey</h2>
+        <p class="hero-subtitle">
+          Key milestones in our story of growth and craftsmanship
+        </p>
+      </div>
+      
+      <div class="milestones-timeline">
+        <div class="milestone">
+          <div class="milestone-date">
+            <div class="milestone-year">1995</div>
+          </div>
+          <div class="milestone-content">
+            <h3 class="milestone-title">The Beginning</h3>
+            <p class="milestone-description">
+              James Demba opens a small woodworking shop in Mombasa, 
+              focusing on traditional kitchen utensils.
+            </p>
+          </div>
+        </div>
+        
+        <div class="milestone">
+          <div class="milestone-date">
+            <div class="milestone-year">2005</div>
+          </div>
+          <div class="milestone-content">
+            <h3 class="milestone-title">First Workshop</h3>
+            <p class="milestone-description">
+              We move to our current location on Kilifi Main Street and 
+              establish our first proper workshop with three artisans.
+            </p>
+          </div>
+        </div>
+        
+        <div class="milestone">
+          <div class="milestone-date">
+            <div class="milestone-year">2015</div>
+          </div>
+          <div class="milestone-content">
+            <h3 class="milestone-title">National Recognition</h3>
+            <p class="milestone-description">
+              Demba Woodcraft receives the National Artisan Excellence Award 
+              for outstanding craftsmanship and quality.
+            </p>
+          </div>
+        </div>
+        
+        <div class="milestone">
+          <div class="milestone-date">
+            <div class="milestone-year">2023</div>
+          </div>
+          <div class="milestone-content">
+            <h3 class="milestone-title">Digital Expansion</h3>
+            <p class="milestone-description">
+              Launch of our online store, allowing customers across Kenya 
+              and beyond to access our handcrafted products.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Demba Woodcraft</h3>
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+          Crafting timeless wooden kitchenware through traditional craftsmanship 
+          and modern design since 1995.
+        </p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="cart.html">Your Cart</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Kilifi Main Street, Mombasa</p>
+          <p><i class="fas fa-phone"></i> +254 721 904 540</p>
+          <p><i class="fas fa-envelope"></i> info@dembawoodcraft.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM</p>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Stay Connected</h3>
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+          Follow our journey and see behind-the-scenes of our workshop.
+        </p>
+        <div style="display: flex; gap: var(--space-3);">
+          <a href="#" style="color: var(--color-text-secondary); font-size: 1.25rem;">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" style="color: var(--color-text-secondary); font-size: 1.25rem;">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" style="color: var(--color-text-secondary); font-size: 1.25rem;">
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </div>
+      </div>
+    </div>
     
+    <div class="footer-bottom">
+      <p>&copy; 2024 Demba Woodcraft. All rights reserved. | Handcrafted with <i class="fas fa-heart" style="color: var(--color-accent);"></i> in Kenya</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize theme and cart
+    document.addEventListener('DOMContentLoaded', function() {
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+      
+      themeToggle.addEventListener('click', toggleTheme);
+      
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      
+      // Close menu when clicking outside on mobile
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            navMenu.classList.remove('active');
+          }
+        }
+      });
+      
+      // Load cart count
+      updateCartCount();
+    });
     
+    // Theme toggle function
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    // Update cart count
+    function updateCartCount() {
+      const savedCart = localStorage.getItem('demba_cart');
+      const cart = savedCart ? JSON.parse(savedCart) : [];
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cart-count').textContent = count > 0 ? count : '';
+    }
+  </script>
 </body>
-<footer>
-  <p><center>&copy; 2024 Demba Wood Crafts. All rights reserved.</center></p>
-</footer>
 </html>
