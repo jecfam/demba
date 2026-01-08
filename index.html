@@ -421,6 +421,31 @@
       padding: 0 var(--space-1);
     }
     
+    /* Mobile Menu Button - Fixed to be a proper button */
+    .mobile-menu-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-accent);
+      background: transparent;
+      color: var(--color-accent);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: none; /* Hidden by default, shown on mobile */
+      align-items: center;
+      justify-content: center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+    }
+    
+    .mobile-menu-btn:hover {
+      background: var(--color-accent);
+      color: white;
+      transform: rotate(90deg);
+    }
+    
     /* ===== HERO SECTION ===== */
     /* FIXED: Hero section spacing for mobile */
     .hero {
@@ -1065,6 +1090,11 @@
         display: none;
       }
       
+      /* Mobile menu button - now visible */
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
       .nav-menu {
         position: fixed;
         top: 64px;
@@ -1076,6 +1106,7 @@
         gap: var(--space-2);
         transform: translateY(-100%);
         opacity: 0;
+        visibility: hidden;
         transition: all var(--transition-base);
         box-shadow: var(--shadow-lg);
         z-index: 999;
@@ -1084,6 +1115,7 @@
       .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
+        visibility: visible;
       }
       
       .nav-link {
@@ -1163,7 +1195,8 @@
       }
       
       .theme-toggle,
-      .cart-btn {
+      .cart-btn,
+      .mobile-menu-btn {
         width: 36px;
         height: 36px;
       }
@@ -1200,13 +1233,14 @@
           <i class="fas fa-moon"></i>
         </button>
         
-        <!-- Updated Cart Button - Now properly linked -->
+        <!-- Cart Button -->
         <a href="cart.html" class="cart-btn" id="cart-btn">
           <i class="fas fa-shopping-bag"></i>
           <span class="cart-count" id="cart-count">0</span>
         </a>
         
-        <button class="btn btn-outline btn-sm" id="mobile-menu-btn">
+        <!-- FIXED: Mobile Menu Button - Now a proper button, not inside a link -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -1612,11 +1646,6 @@
       document.getElementById('cart-count').textContent = count || '0';
     }
 
-    // UPDATED: Cart navigation function - now properly opens cart page
-    function openCart() {
-      window.location.href = "cart.html";
-    }
-
     async function addToCart(productId) {
       const product = products.find(p => p.id === productId);
       if (!product) return;
@@ -1840,6 +1869,34 @@
         });
       });
 
+      // Mobile menu button - FIXED: Now properly toggles menu without navigating
+      document.getElementById('mobile-menu-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const navMenu = document.getElementById('nav-menu');
+        navMenu.classList.toggle('active');
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        const navMenu = document.getElementById('nav-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !mobileMenuBtn.contains(e.target)) {
+          navMenu.classList.remove('active');
+        }
+      });
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          const navMenu = document.getElementById('nav-menu');
+          navMenu.classList.remove('active');
+        });
+      });
+
       // Function to handle hash navigation on page load
       function handleHashNavigation() {
         const hash = window.location.hash;
@@ -1867,30 +1924,6 @@
       // Run on page load and hash change
       document.addEventListener('DOMContentLoaded', handleHashNavigation);
       window.addEventListener('hashchange', handleHashNavigation);
-      
-      // Mobile menu button
-      document.getElementById('mobile-menu-btn').addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleMenu();
-      });
-      
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', function(e) {
-        const navMenu = document.getElementById('nav-menu');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
-            !mobileMenuBtn.contains(e.target)) {
-          navMenu.classList.remove('active');
-        }
-      });
-    }
-
-    function toggleMenu() {
-      const menu = document.getElementById('nav-menu');
-      menu.classList.toggle('active');
     }
 
     // Hero animations
