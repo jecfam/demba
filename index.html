@@ -312,20 +312,43 @@
       background: var(--color-surface-elevated);
     }
     
+    /* UPDATED: Professional underline animation for active state */
     .nav-link.active {
       color: var(--color-accent);
+      background: transparent;
     }
     
     .nav-link.active::after {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 4px;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-accent), transparent 70%);
+      border-radius: var(--radius-full);
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: transform var(--transition-base) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
       background: var(--color-accent);
       border-radius: var(--radius-full);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition-base) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
     
     .nav-actions {
@@ -334,6 +357,7 @@
       gap: var(--space-4);
     }
     
+    /* FIXED: Dark mode button - prevent it from acting like a link */
     .theme-toggle {
       width: 40px;
       height: 40px;
@@ -346,11 +370,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
     }
     
     .theme-toggle:hover {
       border-color: var(--color-accent);
       color: var(--color-accent);
+      transform: rotate(15deg);
     }
     
     .cart-btn {
@@ -392,19 +421,16 @@
       padding: 0 var(--space-1);
     }
     
-    .mobile-menu-btn {
-      display: none;
-    }
-    
     /* ===== HERO SECTION ===== */
+    /* FIXED: Hero section spacing for mobile */
     .hero {
       min-height: 100vh;
-      margin-top: 30px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, var(--color-bg) 0%, rgba(180, 83, 9, 0.05) 100%);
+      padding-top: 72px; /* Added to prevent content hiding behind fixed navbar */
     }
     
     .hero::before {
@@ -990,15 +1016,28 @@
       
       .hero {
         min-height: auto;
-        padding: var(--space-20) 0;
+        padding: var(--space-16) 0;
+        padding-top: 72px; /* Keep padding for mobile */
       }
       
       .hero-title {
         font-size: 2.75rem;
+        line-height: 1.2;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem; /* Slightly smaller for mobile */
+        line-height: 1.6;
       }
       
       .hero-actions {
         flex-direction: column;
+        gap: var(--space-3);
+      }
+      
+      .btn {
+        padding: var(--space-3) var(--space-5);
+        font-size: 0.95rem; /* Smaller button text */
       }
       
       .grid-cols-4,
@@ -1012,6 +1051,10 @@
       
       .section-title {
         font-size: 2.5rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1.1rem; /* Smaller subtitle */
       }
       
       .nav-container {
@@ -1035,17 +1078,38 @@
         opacity: 0;
         transition: all var(--transition-base);
         box-shadow: var(--shadow-lg);
+        z-index: 999;
       }
       
       .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
       }
+      
+      .nav-link {
+        padding: var(--space-3) var(--space-4);
+        font-size: 1rem; /* Better mobile readability */
+      }
+      
+      .nav-link.active::after {
+        bottom: -4px;
+        height: 3px; /* Thicker underline for mobile */
+      }
     }
     
     @media (max-width: 480px) {
+      .hero {
+        padding: var(--space-12) 0;
+        padding-top: 64px; /* Adjusted for smaller mobile */
+      }
+      
       .hero-title {
         font-size: 2.25rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--space-6);
       }
       
       .grid-cols-4,
@@ -1058,8 +1122,50 @@
         font-size: 2rem;
       }
       
+      .section-subtitle {
+        font-size: 1rem;
+      }
+      
       .product-image-container {
         height: 240px;
+      }
+      
+      .product-title {
+        font-size: 1.1rem;
+      }
+      
+      .product-description {
+        font-size: 0.875rem; /* Smaller text for mobile */
+      }
+      
+      .nav-link {
+        font-size: 0.95rem;
+      }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+      }
+      
+      .btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: 0.9rem;
+      }
+      
+      .nav-actions {
+        gap: var(--space-2);
+      }
+      
+      .theme-toggle,
+      .cart-btn {
+        width: 36px;
+        height: 36px;
       }
     }
   </style>
@@ -1100,7 +1206,7 @@
           <span class="cart-count" id="cart-count">0</span>
         </a>
         
-        <button class="btn btn-outline btn-sm" onclick="toggleMenu()">
+        <button class="btn btn-outline btn-sm" id="mobile-menu-btn">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -1226,7 +1332,12 @@
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
       }
       
-      themeToggle.addEventListener('click', toggleTheme);
+      // FIXED: Prevent event propagation to avoid navigation issues
+      themeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleTheme();
+      });
     }
 
     function toggleTheme() {
@@ -1702,10 +1813,14 @@
         }
       });
       
-      // Nav links
+      // Nav links - now properly handling both internal and external links
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
           const target = this.getAttribute('href');
+          
+          // Close mobile menu if open
+          const navMenu = document.getElementById('nav-menu');
+          navMenu.classList.remove('active');
           
           // If it's an anchor link on the same page
           if (target.startsWith('#') && !target.includes('.html')) {
@@ -1752,6 +1867,25 @@
       // Run on page load and hash change
       document.addEventListener('DOMContentLoaded', handleHashNavigation);
       window.addEventListener('hashchange', handleHashNavigation);
+      
+      // Mobile menu button
+      document.getElementById('mobile-menu-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        const navMenu = document.getElementById('nav-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !mobileMenuBtn.contains(e.target)) {
+          navMenu.classList.remove('active');
+        }
+      });
     }
 
     function toggleMenu() {
@@ -1793,4 +1927,3 @@
   </script>
 </body>
 </html>
-
