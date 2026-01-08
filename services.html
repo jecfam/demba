@@ -1,144 +1,1010 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icons8-favicon-48.png" type="image/x-icon">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Demba Craft services</title>
-
-    <head>
-        <h1><center><strong>DEMBA CRAFTS</strong></center></h1>
-    
-        <div class="navbar">
-              <a href="home.html">Home</a></li>
-              <a href="products.html">Products</a>
-              <a href="services.html">Services</a>
-              <a href="about.html">About</a>
-              <a href="contact.html">Contact</a>
-            </div>
-    </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icons8-favicon-48.png" type="image/x-icon">
+  <title>Services | Demba Woodcraft</title>
   
-    <style>
-        body {
-            font-family: 'font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            margin: 20px;
-            background-size: cover;
-            background-image: url(whitecloth.png)
-        }
-        .service-container {
-            max-width: 550px;
-            margin: 0 auto;
-            margin-top: -36px;
-        }
-        .navbar {
-  padding: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.navbar a {
-  text-decoration: none;
-  color: #a32d2d;
-  transition: all 0.3s ease-in-out; /* Smooth transition */
-  font-weight: 900; /* Reset font weight if necessary */
-  font-size: 15px;
-  padding: 13px;
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
-  margin-top: -48px;
-}
- a:hover {
-  color: rgb(18, 20, 20);
-  text-decoration: underline; /* Add underline on hover */
-  font-weight: bold; /* Make the text bold */
-  letter-spacing: 1px; /* Slightly increase letter spacing */
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-}
-         h1 {
-    text-shadow: 1px 2px 0 #e28686;
-  }
-        h2 {
-            color: black;
-        }
-        p {
-            color: black;
-        }
-  .container {
-  width: 100%;
-  margin: 10px;
-}
-</style>
-    <body>
-         <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </body>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* ===== CSS VARIABLES & RESET ===== */
+    :root {
+      /* Light Theme */
+      --color-bg: #FAFAF9;
+      --color-surface: #FFFFFF;
+      --color-surface-elevated: #F5F5F4;
+      --color-text-primary: #1C1917;
+      --color-text-secondary: #57534E;
+      --color-text-tertiary: #78716C;
+      --color-border: #E7E5E4;
+      --color-accent: #B45309;
+      --color-accent-light: #FEF3C7;
+      --color-success: #059669;
+      --color-warning: #D97706;
+      --color-error: #DC2626;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      
+      /* Typography */
+      --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      
+      /* Spacing */
+      --space-0: 0;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      
+      /* Border Radius */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-2xl: 1.5rem;
+      --radius-full: 9999px;
+    }
+    
+    .dark {
+      --color-bg: #0C0A09;
+      --color-surface: #1C1917;
+      --color-surface-elevated: #292524;
+      --color-text-primary: #FAFAF9;
+      --color-text-secondary: #D6D3D1;
+      --color-text-tertiary: #A8A29E;
+      --color-border: #44403C;
+      --color-accent: #F59E0B;
+      --color-accent-light: #78350F;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease;
+    }
+    
+    /* ===== NAVIGATION ===== */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(250, 250, 249, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+    }
+    
+    .dark .nav-bar {
+      background: rgba(12, 10, 9, 0.95);
+    }
+    
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+    }
+    
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--color-accent), #D97706);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    
+    .brand-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-text-primary);
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: var(--space-8);
+    }
+    
+    .nav-link {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--color-text-primary);
+      background: var(--color-surface-elevated);
+    }
+    
+    .nav-link.active {
+      color: var(--color-accent);
+    }
+    
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--color-accent);
+      border-radius: var(--radius-full);
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .theme-toggle:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    
+    .cart-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    
+    .cart-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      min-width: 20px;
+      height: 20px;
+      background: var(--color-accent);
+      color: white;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--space-1);
+    }
+    
+    /* ===== MAIN CONTENT ===== */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 7rem var(--space-6) var(--space-20);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      margin-bottom: var(--space-20);
+    }
+    
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, var(--color-accent), #D97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-20);
+    }
+    
+    .service-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: transparent;
+    }
+    
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.1), rgba(180, 83, 9, 0.05));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 1.75rem;
+      margin-bottom: var(--space-6);
+    }
+    
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-text-primary);
+    }
+    
+    .service-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+      flex: 1;
+    }
+    
+    .service-features {
+      list-style: none;
+      margin-top: var(--space-4);
+    }
+    
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+      color: var(--color-text-tertiary);
+      font-size: 0.95rem;
+    }
+    
+    .service-features li i {
+      color: var(--color-accent);
+      font-size: 0.875rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-accent), #D97706);
+      border-radius: var(--radius-xl);
+      padding: var(--space-16) var(--space-8);
+      text-align: center;
+      color: white;
+      margin-bottom: var(--space-20);
+    }
+    
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      margin-bottom: var(--space-4);
+    }
+    
+    .cta-text {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+    }
+    
+    .btn-primary {
+      background: white;
+      color: var(--color-accent);
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-lg);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Process Section */
+    .process-section {
+      margin-bottom: var(--space-20);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      margin-bottom: var(--space-4);
+    }
+    
+    .section-subtitle {
+      color: var(--color-text-secondary);
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .process-step {
+      text-align: center;
+      padding: var(--space-6);
+    }
+    
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--color-accent);
+      color: white;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0 auto var(--space-4);
+    }
+    
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .step-description {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-12) 0 var(--space-8);
+    }
+    
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-12);
+      margin-bottom: var(--space-8);
+    }
+    
+    .footer-column h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-text-primary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+    
+    .contact-info {
+      color: var(--color-text-secondary);
+    }
+    
+    .contact-info p {
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-tertiary);
+      font-size: 0.9rem;
+    }
+    
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .nav-menu {
+        gap: var(--space-4);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 var(--space-4);
+      }
+      
+      .brand-text {
+        display: none;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--color-surface);
+        padding: var(--space-4);
+        flex-direction: column;
+        gap: var(--space-2);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .main-container {
+        padding: 6rem var(--space-4) var(--space-12);
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      
+      .cta-title {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .service-card {
+        padding: var(--space-6);
+      }
+      
+      .cta-section {
+        padding: var(--space-12) var(--space-4);
+      }
+      
+      .cta-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .service-card {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+    .service-card:nth-child(4) { animation-delay: 0.4s; }
+    .service-card:nth-child(5) { animation-delay: 0.5s; }
+    .service-card:nth-child(6) { animation-delay: 0.6s; }
+    .service-card:nth-child(7) { animation-delay: 0.7s; }
+    .service-card:nth-child(8) { animation-delay: 0.8s; }
+  </style>
 </head>
 <body>
-
-<div class="service-container">
-    <h1>DEMBA CRAFT SERVICES</h1>
-
-    <div class="service">
-        <h2>Custom Wooden Utensils</h2>
-        <p>
-            Handmade wooden spoons, spatulas, and ladles.
-Custom designs based on customer preferences (size, style, wood type).
-Personalized engraving or branding on utensils.
-        </p>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <a href="products.html" class="brand">
+        <div class="brand-logo">D</div>
+        <span class="brand-text">DEMBA</span>
+      </a>
+      
+      <div class="nav-menu" id="nav-menu">
+        <a href="products.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <a href="cart.html" class="cart-btn" id="cart-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        
+        <button class="theme-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
+  </nav>
 
-    <div class="service">
-        <h2>Wooden Cutting Boards</h2>
-        <p>
-            Handcrafted cutting boards in various sizes and shapes.
-Customized boards with engraved logos or names.
-        </p>
-    </div>
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="hero-title">
+        Craftsmanship <span class="text-gradient">Services</span>
+      </h1>
+      <p class="hero-subtitle">
+        Beyond products, we offer specialized woodcraft services to bring your vision to life. 
+        From custom designs to restoration, our artisans are here to serve your needs.
+      </p>
+    </section>
 
-    <div class="service">
-        <h2>Wooden Kitchen Accessories</h2>
-        <p>
-            Salt and pepper shakers, butter dishes, and serving trays.
-            Wooden rolling pins, dough scrapers, and other baking tools.
+    <!-- Services Grid -->
+    <section class="services-grid" id="services">
+      <!-- Custom Wooden Utensils -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3 class="service-title">Custom Wooden Utensils</h3>
+        <p class="service-description">
+          Handmade wooden spoons, spatulas, and ladles tailored to your preferences. 
+          Choose your size, style, and wood type for a truly personalized kitchen tool.
         </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Personalized engraving available</li>
+          <li><i class="fas fa-check"></i> Multiple wood type options</li>
+          <li><i class="fas fa-check"></i> Custom sizes and designs</li>
+          <li><i class="fas fa-check"></i> Branding options for businesses</li>
+        </ul>
+      </div>
+
+      <!-- Wooden Cutting Boards -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-cut"></i>
+        </div>
+        <h3 class="service-title">Wooden Cutting Boards</h3>
+        <p class="service-description">
+          Handcrafted cutting boards in various sizes and shapes. 
+          Customize with engraved logos, names, or special designs for a unique kitchen centerpiece.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> End-grain and edge-grain options</li>
+          <li><i class="fas fa-check"></i> Juice grooves and hand grips</li>
+          <li><i class="fas fa-check"></i> Custom shapes and sizes</li>
+          <li><i class="fas fa-check"></i> Professional engraving services</li>
+        </ul>
+      </div>
+
+      <!-- Kitchen Accessories -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-mortar-pestle"></i>
+        </div>
+        <h3 class="service-title">Kitchen Accessories</h3>
+        <p class="service-description">
+          Complete your kitchen with our range of wooden accessories including 
+          salt and pepper shakers, butter dishes, serving trays, and baking tools.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Rolling pins and dough scrapers</li>
+          <li><i class="fas fa-check"></i> Serving trays and platters</li>
+          <li><i class="fas fa-check"></i> Spice containers and shakers</li>
+          <li><i class="fas fa-check"></i> Butter dishes and condiment holders</li>
+        </ul>
+      </div>
+
+      <!-- Storage Solutions -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-box-open"></i>
+        </div>
+        <h3 class="service-title">Storage Solutions</h3>
+        <p class="service-description">
+          Custom wooden organizers and storage solutions to declutter your kitchen. 
+          From utensil holders to spice racks, we create functional and beautiful storage.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Custom drawer inserts</li>
+          <li><i class="fas fa-check"></i> Spice rack systems</li>
+          <li><i class="fas fa-check"></i> Utensil holders and organizers</li>
+          <li><i class="fas fa-check"></i> Storage boxes and containers</li>
+        </ul>
+      </div>
+
+      <!-- Eco-Friendly Solutions -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3 class="service-title">Eco-Friendly Alternatives</h3>
+        <p class="service-description">
+          Sustainable wooden alternatives to plastic kitchen tools. 
+          We source wood from certified forests and use reclaimed wood whenever possible.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Sustainable wood sourcing</li>
+          <li><i class="fas fa-check"></i> Reclaimed wood options</li>
+          <li><i class="fas fa-check"></i> Biodegradable and compostable</li>
+          <li><i class="fas fa-check"></i> Food-safe natural finishes</li>
+        </ul>
+      </div>
+
+      <!-- Restoration & Repair -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3 class="service-title">Restoration & Repair</h3>
+        <p class="service-description">
+          Breathe new life into your old or damaged wooden items. 
+          Our restoration services include sanding, oiling, and refinishing.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Crack and damage repair</li>
+          <li><i class="fas fa-check"></i> Professional sanding and refinishing</li>
+          <li><i class="fas fa-check"></i> Oiling and sealing services</li>
+          <li><i class="fas fa-check"></i> Antique restoration</li>
+        </ul>
+      </div>
+
+      <!-- Wholesale & Bulk -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-industry"></i>
+        </div>
+        <h3 class="service-title">Wholesale & Bulk Orders</h3>
+        <p class="service-description">
+          Specialized services for restaurants, hotels, and businesses. 
+          Bulk orders with custom branding options for your establishment.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Restaurant and hotel supplies</li>
+          <li><i class="fas fa-check"></i> Custom branding and logos</li>
+          <li><i class="fas fa-check"></i> Volume discounts available</li>
+          <li><i class="fas fa-check"></i> Consistent product quality</li>
+        </ul>
+      </div>
+
+      <!-- Workshops & Classes -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h3 class="service-title">Workshops & Classes</h3>
+        <p class="service-description">
+          Learn the art of woodworking in our hands-on workshops. 
+          Create your own wooden utensils and kitchen tools under expert guidance.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Beginner to advanced classes</li>
+          <li><i class="fas fa-check"></i> All tools and materials provided</li>
+          <li><i class="fas fa-check"></i> Small group sessions</li>
+          <li><i class="fas fa-check"></i> Corporate team-building events</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Start Your Project?</h2>
+      <p class="cta-text">
+        Whether it's a custom order, restoration project, or bulk purchase, 
+        our team is ready to bring your vision to life with expert craftsmanship.
+      </p>
+      <a href="contact.html" class="btn-primary">
+        <i class="fas fa-envelope"></i>
+        Get a Free Quote
+      </a>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="section-header">
+        <h2 class="section-title">Our Process</h2>
+        <p class="section-subtitle">
+          From consultation to completion, we ensure every project meets our high standards of quality and craftsmanship.
+        </p>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Consultation</h3>
+          <p class="step-description">
+            We discuss your needs, preferences, and vision for the project.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Design & Planning</h3>
+          <p class="step-description">
+            We create detailed designs and select the perfect materials.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Craftsmanship</h3>
+          <p class="step-description">
+            Our artisans handcraft your items with precision and care.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3 class="step-title">Quality Check</h3>
+          <p class="step-description">
+            Every item undergoes rigorous quality inspection.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">5</div>
+          <h3 class="step-title">Delivery</h3>
+          <p class="step-description">
+            Your finished products are carefully packaged and delivered.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Demba Woodcraft</h3>
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+          Crafting timeless wooden kitchenware through traditional craftsmanship 
+          and modern design since 1995.
+        </p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="cart.html">Your Cart</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Our Services</h3>
+        <ul class="footer-links">
+          <li><a href="#services">Custom Orders</a></li>
+          <li><a href="#services">Restoration</a></li>
+          <li><a href="#services">Wholesale</a></li>
+          <li><a href="#services">Workshops</a></li>
+          <li><a href="#services">Consultation</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+          <p><i class="fas fa-phone"></i> +254 712 345 678</p>
+          <p><i class="fas fa-envelope"></i> services@dembawoodcraft.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</p>
+        </div>
+      </div>
     </div>
-    <div class="service">
-        <h2>Wooden Storage Solutions</h2>
-        <p>
-            Custom wooden kitchen organizers, utensil holders, and drawer inserts.
-Wooden storage boxes and containers for spices, herbs, and other kitchen items.
-        </p>
-</div>
-<div class="service">
-    <h2>Eco-Friendly Alternatives</h2>
-    <p>
-        Environmentally friendly wooden alternatives to plastic kitchen tools.
-Sustainable sourcing of wood from certified forests or reclaimed wood.
-    </p>
-</div>
-<div class="service">
-    <h2>Restoration & Repair Services</h2>
-    <p>
- `      Repairing and restoring old or damaged wooden kitchen items.
- Sanding, oiling, and re-finishing services to maintain wooden utensils.
-    </p>
-</div>
-<div class="service">
-    <h2>Wholesale & Bulk Orders</h2>
-    <p>
-        Supplying restaurants, hotels, and catering businesses with wooden utensils and accessories in bulk.
-Custom branding options for businesses.
-    </p>
-</div>
-<div class="service">
-    <h2>Woodworking Classes & Workshops</h2>
-    <p>
-        Offering workshops or classes where people can learn how to make their own wooden utensils and kitchen tools.
-    </p>
-</div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Demba Woodcraft. All rights reserved. | Handcrafted with <i class="fas fa-heart" style="color: var(--color-accent);"></i> in Kenya</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize theme
+    document.addEventListener('DOMContentLoaded', function() {
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+      
+      themeToggle.addEventListener('click', toggleTheme);
+      
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      
+      // Close menu when clicking outside on mobile
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            navMenu.classList.remove('active');
+          }
+        }
+      });
+      
+      // Load cart count
+      updateCartCount();
+    });
+    
+    // Theme toggle function
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    // Update cart count
+    function updateCartCount() {
+      const savedCart = localStorage.getItem('demba_cart');
+      const cart = savedCart ? JSON.parse(savedCart) : [];
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cart-count').textContent = count > 0 ? count : '';
+    }
+  </script>
 </body>
 </html>
